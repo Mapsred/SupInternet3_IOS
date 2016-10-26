@@ -33,12 +33,29 @@ class ViewController: UIViewController {
     }
     
     @IBAction func useTouchedLoginButton() {
-        if let username = loginField.text,
-        let password = passwordField.text {
-            print("Username[\(username)]")
-            print("Password[\(password)]")
+        
+        guard let username = loginField.text,
+        let password = passwordField.text where
+            username.characters.count > 0 &&
+            isPasswordEnoughSecured(password) == true else {
+                showErrorAlert()
+            return
         }
         
+        print("Username[\(username)]")
+        print("Password[\(password)]")
+        
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "My First App", message: "Enter correct username/password", preferredStyle: .Alert)
+        let ok = UIAlertAction(title: "Got it !", style: .Default, handler: nil)
+        alert.addAction(ok)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func isPasswordEnoughSecured(pass: String) -> Bool {
+        return true
     }
 
     override func didReceiveMemoryWarning() {
