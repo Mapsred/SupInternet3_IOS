@@ -6,4 +6,6 @@ Go to "Window" menu and "Welcome to Xcode" and click on "Check out an existing p
 To use for the final project :
 Pinterest with iOS, UX and Animation keywords
 
-CocoaPods with Weather keyword
+CocoaControls with Weather keyword
+
+CocoaPods to use libraries
