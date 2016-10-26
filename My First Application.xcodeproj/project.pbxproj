@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AADABEBF1DC0B918000676CD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADABEBE1DC0B918000676CD /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DA03FB4E1DB77CD100AD6AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03FB4D1DB77CD100AD6AB0 /* AppDelegate.swift */; };
 		DA03FB501DB77CD100AD6AB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03FB4F1DB77CD100AD6AB0 /* ViewController.swift */; };
 		DA03FB531DB77CD100AD6AB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA03FB511DB77CD100AD6AB0 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AADABEBE1DC0B918000676CD /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DA03FB4A1DB77CD000AD6AB0 /* My First Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My First Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA03FB4D1DB77CD100AD6AB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA03FB4F1DB77CD100AD6AB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				DA03FB541DB77CD100AD6AB0 /* Assets.xcassets */,
 				DA03FB561DB77CD100AD6AB0 /* LaunchScreen.storyboard */,
 				DA03FB591DB77CD100AD6AB0 /* Info.plist */,
+				AADABEBE1DC0B918000676CD /* DetailViewController.swift */,
 			);
 			path = "My First Application";
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AADABEBF1DC0B918000676CD /* DetailViewController.swift in Sources */,
 				DA03FB501DB77CD100AD6AB0 /* ViewController.swift in Sources */,
 				DA03FB4E1DB77CD100AD6AB0 /* AppDelegate.swift in Sources */,
 			);
@@ -292,6 +296,7 @@
 				DA03FB5E1DB77CD100AD6AB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

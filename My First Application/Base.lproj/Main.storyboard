@@ -139,11 +139,40 @@
                         <outlet property="myButton" destination="Oos-V7-CbZ" id="ErV-Cm-kiu"/>
                         <outlet property="myLabel" destination="kjo-NV-4kr" id="Srh-O6-PHZ"/>
                         <outlet property="passwordField" destination="y4Q-Fw-UT3" id="N7B-0f-abu"/>
+                        <segue destination="d5v-y9-3ex" kind="show" identifier="ShowDetail" id="xIH-4c-cfX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="496"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="57C-dQ-Ji4">
+            <objects>
+                <viewController id="d5v-y9-3ex" customClass="DetailViewController" customModule="My_First_Application" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h6g-45-Ecs"/>
+                        <viewControllerLayoutGuide type="bottom" id="vLX-e4-7l8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Imf-hL-kCu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9B-4x-lF7">
+                                <rect key="frame" x="208" y="261" width="156" height="97"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SCa-Ho-4dQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="496"/>
         </scene>
     </scenes>
 </document>

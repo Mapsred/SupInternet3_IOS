@@ -42,6 +42,8 @@ class ViewController: UIViewController {
             return
         }
         
+        performSegueWithIdentifier("ShowDetail", sender: nil)
+        
         print("Username[\(username)]")
         print("Password[\(password)]")
         
