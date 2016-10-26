@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var myLabel: UILabel!
-
+    @IBOutlet weak var myTextField: UITextField!
+    @IBOutlet weak var myButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,6 +25,10 @@ class ViewController: UIViewController {
         
         //Second test - label
         self.myLabel.text = "Hello Guys"
+        self.myTextField.text = "TextField"
+        self.myButton.setTitle("Click here !", forState: .Normal)
+
+
 
     }
 
