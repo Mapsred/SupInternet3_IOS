@@ -37,11 +37,12 @@ class ViewController: UIViewController {
         guard let username = loginField.text,
         let password = passwordField.text where
             username.characters.count > 0 &&
-            isPasswordEnoughSecured(password) == true else {
-                showErrorAlert()
-            return
+                isPasswordEnoughSecured(password) == true &&
+                isUsernameValid(username) &&
+                isPasswordValid(password) else {
+                    showErrorAlert()
+                    return
         }
-        
         performSegueWithIdentifier("ShowDetail", sender: nil)
         
         print("Username[\(username)]")
@@ -58,6 +59,14 @@ class ViewController: UIViewController {
     
     func isPasswordEnoughSecured(pass: String) -> Bool {
         return true
+    }
+    
+    func isUsernameValid(username: String) -> Bool {
+        return username.characters.count >= 5
+    }
+    
+    func isPasswordValid(password: String) -> Bool {
+        return password == "toto42"
     }
 
     override func didReceiveMemoryWarning() {
