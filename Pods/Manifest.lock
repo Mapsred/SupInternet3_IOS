@@ -1,3 +1,15 @@
-PODFILE CHECKSUM: 321a2ca126ee978dd01c7739be670bd903cb2521
+PODS:
+  - Alamofire (3.5.1)
+  - JSONModel (1.7.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.5.1)
+  - JSONModel
+
+SPEC CHECKSUMS:
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+
+PODFILE CHECKSUM: 75db9fe4a702407e7477c6c378e707cbacf42870
 
 COCOAPODS: 1.1.1

@@ -1,6 +1,7 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '8.0'
 use_frameworks!
 target 'My First Application' do
-  pod 'Alamofire', '~> 4.0'
+  pod 'Alamofire', '~> 3.5.1'
+  pod 'JSONModel'
 end
