@@ -10,6 +10,9 @@ import Foundation
 import Alamofire
 
 /// Request Manager to make HTTP Calls to zeather server
+
+typealias WeatherArray = Array<Dictionary<String,AnyObject>>
+
 class SWRequestManager {
     static let sharedInstance = SWRequestManager()
     
@@ -19,23 +22,26 @@ class SWRequestManager {
     internal let actualCoordinates: (latitude: String, longitude: String)
     
     private init() {
-        actualCoordinates = (latitude: "é.2875920000023", longitude: "48.862725")
+        actualCoordinates = (latitude: "37.8267", longitude: "122.4233")
     }
     
-    func fetchWeather() -> Void {
+    func fetchWeather(onSuccess success: (WeatherArray) -> Void, onError error: (String) -> Void) -> Void {
         var strRequest = "\(host)/\(apiKey)/"
-        strRequest += "\(actualCoordinates.latitude)/\(actualCoordinates.longitude)/"
-        
-        Alamofire.request(.GET, strRequest).responseJSON {
-            response in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+        strRequest += "\(actualCoordinates.latitude),\(actualCoordinates.longitude)"
+        print("\(strRequest)")
+        Alamofire.request(.GET, strRequest).responseJSON { response in
+            guard let JSON = response.result.value as? Dictionary<String, AnyObject>  else{
+                error("Request Manager -> No data when fetching [\(strRequest)], or corrupted")
+                return
             }
+            
+            guard let daily = JSON["daily"] as? Dictionary<String, AnyObject>,
+                let data = daily["data"] as? WeatherArray else {
+                error("Request Manager -> Can not map from \(strRequest)")
+                return
+            }
+            
+            success(data)
         }
     }
 }

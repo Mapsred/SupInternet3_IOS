@@ -8,72 +8,58 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var loginField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var myButton: UIButton!
+    var resultWeather: WeatherArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //First test
-        /*
-        let view = UIView(frame: CGRect(x: 50, y: 50, width: 300, height: 300))
-        view.backgroundColor = .blueColor()
-        self.view.addSubview(view)
-        */
-        //Second test - label
-        self.myLabel.text = "Hello Guys"
-        self.loginField.text = "Login Field"
-        self.passwordField.text = "Password Field"
-        self.myButton.setTitle("Click here !", forState: .Normal)
-    }
-    
-    @IBAction func useTouchedLoginButton() {
-        
-        guard let username = loginField.text,
-        let password = passwordField.text where
-            username.characters.count > 0 &&
-                isPasswordEnoughSecured(password) == true &&
-                isUsernameValid(username) &&
-                isPasswordValid(password) else {
-                    showErrorAlert()
-                    return
+        SWRequestManager.sharedInstance.fetchWeather(onSuccess: { (result) in
+            self.resultWeather = result
+            self.reload()
+        }) {
+            (error) in print("Error => \(error)")
         }
-        performSegueWithIdentifier("ShowDetail", sender: nil)
-        
-        print("Username[\(username)]")
-        print("Password[\(password)]")
-        
     }
     
-    func showErrorAlert() {
-        let alert = UIAlertController(title: "My First App", message: "Enter correct username/password", preferredStyle: .Alert)
-        let ok = UIAlertAction(title: "Got it !", style: .Default, handler: nil)
-        alert.addAction(ok)
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    func isPasswordEnoughSecured(pass: String) -> Bool {
-        return true
-    }
-    
-    func isUsernameValid(username: String) -> Bool {
-        return username.characters.count >= 5
-    }
-    
-    func isPasswordValid(password: String) -> Bool {
-        return password == "toto42"
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    ///Reload content of View Controller
+    func reload() {
+        self.tableView.reloadData()
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resultWeather?.count ?? 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(RootWeatherCell.identifier) as? RootWeatherCell else {
+            print("error")
+            return UITableViewCell()
+        }
+        
+        guard let objWeather = self.resultWeather?[indexPath.row],
+        let summary = objWeather["summary"] as? String,
+        let time = objWeather["time"] as? Int else {
+            return cell
+        }
+        
+        cell.backgroundColor = UIColor.redColor()
+        cell.titleLabel.text = summary
+        cell.dateLabel.text = "\(time)"
+        
+        return cell
+    }
+    
+    
 }
 

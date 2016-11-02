@@ -15,6 +15,7 @@
 		DA03FB551DB77CD100AD6AB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA03FB541DB77CD100AD6AB0 /* Assets.xcassets */; };
 		DA03FB581DB77CD100AD6AB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA03FB561DB77CD100AD6AB0 /* LaunchScreen.storyboard */; };
 		DA13C6781DC9EAED00E45AC0 /* SWRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13C6771DC9EAED00E45AC0 /* SWRequestManager.swift */; };
+		DA6778C71DCA000A00BF63EB /* RootWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6778C61DCA000A00BF63EB /* RootWeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DA03FB571DB77CD100AD6AB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA03FB591DB77CD100AD6AB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA13C6771DC9EAED00E45AC0 /* SWRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SWRequestManager.swift; path = Manager/SWRequestManager.swift; sourceTree = "<group>"; };
+		DA6778C61DCA000A00BF63EB /* RootWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				DA03FB591DB77CD100AD6AB0 /* Info.plist */,
 				AADABEBE1DC0B918000676CD /* DetailViewController.swift */,
 				DA13C6771DC9EAED00E45AC0 /* SWRequestManager.swift */,
+				DA6778C61DCA000A00BF63EB /* RootWeatherCell.swift */,
 			);
 			path = "My First Application";
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				AADABEBF1DC0B918000676CD /* DetailViewController.swift in Sources */,
 				DA03FB501DB77CD100AD6AB0 /* ViewController.swift in Sources */,
 				DA03FB4E1DB77CD100AD6AB0 /* AppDelegate.swift in Sources */,
+				DA6778C71DCA000A00BF63EB /* RootWeatherCell.swift in Sources */,
 				DA13C6781DC9EAED00E45AC0 /* SWRequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
