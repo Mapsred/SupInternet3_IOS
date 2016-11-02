@@ -9,3 +9,8 @@ Pinterest with iOS, UX and Animation keywords
 CocoaControls with Weather keyword
 
 CocoaPods to use libraries
+
+
+In case of errors with pod :
+cd .cocoapods/repo
+git clone https://github.com/cocoapods/Specs.git master
