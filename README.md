@@ -8,7 +8,9 @@ Pinterest with iOS, UX and Animation keywords
 
 CocoaControls with Weather keyword
 
-CocoaPods to use libraries
+CocoaPods to use libraries :
+sudo gem install cocoapods
+pod install
 
 
 In case of errors with pod :
