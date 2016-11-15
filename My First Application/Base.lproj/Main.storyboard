@@ -37,21 +37,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Gauche" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbz-iY-gdI">
-                                            <rect key="frame" x="41" y="34" width="59" height="21"/>
+                                            <rect key="frame" x="18" y="34" width="59" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Droite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rr-XD-f0u">
-                                            <rect key="frame" x="518" y="34" width="47" height="21"/>
+                                            <rect key="frame" x="244" y="34" width="47" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Rbz-iY-gdI" firstAttribute="centerX" secondItem="dD4-Sa-YCC" secondAttribute="centerX" constant="-221" id="Kz6-KX-EDe"/>
-                                        <constraint firstItem="6rr-XD-f0u" firstAttribute="centerX" secondItem="dD4-Sa-YCC" secondAttribute="centerX" constant="244" id="aHR-UN-oe9"/>
+                                        <constraint firstItem="Rbz-iY-gdI" firstAttribute="centerY" secondItem="dD4-Sa-YCC" secondAttribute="centerY" id="kiX-86-0fh"/>
+                                        <constraint firstItem="6rr-XD-f0u" firstAttribute="centerY" secondItem="dD4-Sa-YCC" secondAttribute="centerY" id="wih-ld-DYV"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

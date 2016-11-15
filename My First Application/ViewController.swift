@@ -55,7 +55,10 @@ class ViewController: UITableViewController {
         
         cell.backgroundColor = UIColor.redColor()
         cell.titleLabel.text = summary
+        cell.titleLabel.font = UIFont(name:"Avenir", size:12)
         cell.dateLabel.text = "\(time)"
+        cell.dateLabel.font = UIFont(name:"Avenir", size:12)
+
         
         return cell
     }
