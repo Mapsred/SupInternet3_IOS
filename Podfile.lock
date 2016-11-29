@@ -1,15 +1,19 @@
 PODS:
   - Alamofire (3.5.1)
+  - AlamofireImage (2.5.0):
+    - Alamofire (~> 3.5)
   - JSONModel (1.7.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.5.1)
+  - AlamofireImage (~> 2.5.0)
   - JSONModel
 
 SPEC CHECKSUMS:
   Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
 
-PODFILE CHECKSUM: 75db9fe4a702407e7477c6c378e707cbacf42870
+PODFILE CHECKSUM: b1c2d8350b155d79f76481af1744435b07599632
 
 COCOAPODS: 1.1.1

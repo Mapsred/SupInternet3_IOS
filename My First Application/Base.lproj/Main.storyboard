@@ -48,6 +48,12 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NOT-2O-bGC">
+                                            <rect key="frame" x="473" y="0.0" width="107" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="107" id="yhJ-pE-szx"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="Rbz-iY-gdI" secondAttribute="bottom" constant="10" id="9br-ko-fpg"/>
@@ -55,12 +61,16 @@
                                         <constraint firstItem="Rbz-iY-gdI" firstAttribute="top" secondItem="6rr-XD-f0u" secondAttribute="bottom" constant="10" id="JVn-Re-6fi"/>
                                         <constraint firstItem="Rbz-iY-gdI" firstAttribute="leading" secondItem="6rr-XD-f0u" secondAttribute="leading" id="P0a-1v-x0n"/>
                                         <constraint firstAttribute="trailing" secondItem="Rbz-iY-gdI" secondAttribute="trailing" constant="20" id="Vpl-Uk-jU2"/>
+                                        <constraint firstItem="NOT-2O-bGC" firstAttribute="trailing" secondItem="Rbz-iY-gdI" secondAttribute="trailing" id="Xbo-Ia-i4y"/>
+                                        <constraint firstItem="NOT-2O-bGC" firstAttribute="top" secondItem="dD4-Sa-YCC" secondAttribute="top" id="XuR-kk-wtm"/>
+                                        <constraint firstItem="Rbz-iY-gdI" firstAttribute="top" secondItem="NOT-2O-bGC" secondAttribute="bottom" constant="8" symbolic="YES" id="iI1-zr-Eru"/>
                                         <constraint firstItem="6rr-XD-f0u" firstAttribute="leading" secondItem="dD4-Sa-YCC" secondAttribute="leading" constant="10" id="iZx-Wi-5nH"/>
                                         <constraint firstItem="6rr-XD-f0u" firstAttribute="top" secondItem="dD4-Sa-YCC" secondAttribute="top" constant="10" id="wgs-VF-Hjx"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="6rr-XD-f0u" id="nt3-MU-752"/>
+                                    <outlet property="imageLabel" destination="NOT-2O-bGC" id="jvl-rf-EPY"/>
                                     <outlet property="summaryLabel" destination="Rbz-iY-gdI" id="6Oh-v5-die"/>
                                 </connections>
                             </tableViewCell>

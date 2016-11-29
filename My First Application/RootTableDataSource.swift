@@ -8,6 +8,9 @@
 
 import Foundation
 import UIKit
+import AlamofireImage
+import Alamofire
+
 
 class RootTableDataSource: NSObject, UITableViewDataSource {
     
@@ -24,7 +27,6 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
     
     // Fetch New Weather
     func updateWeather(completion: () -> Void!) -> AnyObject! {
-        print("here")
         SWRequestManager.sharedInstance.fetchWeather(onSuccess: { [weak self](result) in
             self?.resultWeather = result
             completion()
@@ -74,6 +76,18 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
         
         cell.dateLabel.text = strDateFormated
         cell.dateLabel.font = UIFont(name:"Avenir", size:12)
+        
+        Alamofire.request(.GET, "https://maxcdn.icons8.com/iOS7/PNG/25/Network/shared-25.png").responseImage {
+            response in
+                if let image = response.result.value {
+                    cell.imageLabel.image = image
+                }else {
+                    debugPrint(response)
+                }
+        }
+        
+        
+
     }
 
 }

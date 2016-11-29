@@ -15,5 +15,8 @@ class RootWeatherCell: UITableViewCell {
     static let identifier = "RootWeatherCellIdentifier"
     
     @IBOutlet var summaryLabel: UILabel!
+
     @IBOutlet var dateLabel: UILabel!
+    
+    @IBOutlet weak var imageLabel: UIImageView!
 }
