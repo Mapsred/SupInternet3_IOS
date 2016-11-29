@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class DetailViewController: UIViewController {
+    @IBOutlet weak var LabelDetail: UILabel!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,4 +21,7 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        return
+    }
 }

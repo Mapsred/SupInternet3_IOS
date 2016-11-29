@@ -23,14 +23,17 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
     var resultWeather: WeatherArray?
     
     // Fetch New Weather
-    func updateWeather(completion: Void) -> Void {
+    func updateWeather(completion: () -> Void!) -> AnyObject! {
+        print("here")
         SWRequestManager.sharedInstance.fetchWeather(onSuccess: { [weak self](result) in
             self?.resultWeather = result
-            completion
+            completion()
         }) { (error) in
-            completion
+            completion()
             print("Error => \(error)")
         }
+        
+        return nil
     }
 
     // Implementation of UiTableViewDataSource

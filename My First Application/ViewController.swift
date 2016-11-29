@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-    let weatherDataSource : RootTableDataSource!
+    var weatherDataSource : RootTableDataSource! = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,7 +18,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.weatherDataSource = RootTableDataSource()
         self.tableView.dataSource = self.weatherDataSource
         self.weatherDataSource.updateWeather {
             [weak self]_ in self?.reload()
