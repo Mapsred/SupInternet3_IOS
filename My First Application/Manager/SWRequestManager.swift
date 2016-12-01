@@ -11,7 +11,8 @@ import Alamofire
 
 /// Request Manager to make HTTP Calls to zeather server
 
-typealias WeatherArray = Array<Dictionary<String,AnyObject>>
+typealias WeatherObject = Dictionary<String, AnyObject>
+typealias WeatherArray = Array<WeatherObject>
 
 class SWRequestManager {
     static let sharedInstance = SWRequestManager()
@@ -28,7 +29,6 @@ class SWRequestManager {
     func fetchWeather(onSuccess success: (WeatherArray) -> Void, onError error: (String) -> Void) -> Void {
         var strRequest = "\(host)/\(apiKey)/"
         strRequest += "\(actualCoordinates.latitude),\(actualCoordinates.longitude)"
-        print("\(strRequest)")
         Alamofire.request(.GET, strRequest).responseJSON { response in
             guard let JSON = response.result.value as? Dictionary<String, AnyObject>  else{
                 error("Request Manager -> No data when fetching [\(strRequest)], or corrupted")

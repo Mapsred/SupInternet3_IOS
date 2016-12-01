@@ -34,5 +34,20 @@ class ViewController: UITableViewController {
     func reload() {
         self.tableView.reloadData()
     }
+    
+    @IBAction func userTapped() {        
+        performSegueWithIdentifier("ShowDetailSegue", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowDetailSegue"{
+            guard let selectedIndex = self.tableView.indexPathForSelectedRow,
+            let object = self.weatherDataSource.getWeatherObject(selectedIndex.row) as? WeatherObject else {return}
+            
+            //guard let DetailViewController = segue.destinationViewController as? DetailViewController else {return}
+            //DetailViewController.weatherObj = object
+        }
+    }
+    
 }
 
