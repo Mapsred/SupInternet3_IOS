@@ -69,22 +69,10 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
                 
         cell.dateLabel.text = objWeather.getDate()
         cell.dateLabel.font = UIFont(name:"Avenir", size:12)
-        let icon = objWeather.iconName
         
-        Alamofire.request(.GET, findImageLinkFromWeather((icon))).responseImage {
+        Alamofire.request(.GET, objWeather.getImageLink()).responseImage {
             response in cell.imageLabel.image = response.result.value
         }
-    }
-    
-    func findImageLinkFromWeather(weather: String) ->  String{
-        let dictionnaryWeather = [
-            "rain" : "http://openweathermap.org/img/w/10d.png",
-            "sun": "http://openweathermap.org/img/w/01d.png",
-            "partly-cloudy-night": "http://openweathermap.org/img/w/10n.png",
-            "clear-night": "http://openweathermap.org/img/w/01n.png"
-        ]
-        
-        return  (dictionnaryWeather[weather] == nil ? dictionnaryWeather["sun"] : dictionnaryWeather[weather])!
     }
     
     func getWeatherObject(forIndexRow: Int) -> Weather {

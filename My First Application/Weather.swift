@@ -12,7 +12,7 @@ import ObjectMapper
 class Weather: Mappable {
     var date: Double!
     var description: String?
-    var iconName: String = "icon-default"
+    var iconName: String = "sun"
     var temperatureMax: Double!
     var temperatureMin: Double!
     
@@ -47,5 +47,16 @@ class Weather: Mappable {
     
     func getDate() -> String {
         return self.formatedDate
+    }
+    
+    func getImageLink() ->  String{
+        let dictionnaryWeather = [
+            "rain" : "http://openweathermap.org/img/w/10d.png",
+            "sun": "http://openweathermap.org/img/w/01d.png",
+            "partly-cloudy-night": "http://openweathermap.org/img/w/10n.png",
+            "clear-night": "http://openweathermap.org/img/w/01n.png"
+        ]
+        
+        return  (dictionnaryWeather[iconName] == nil ? dictionnaryWeather["sun"] : dictionnaryWeather[iconName])!
     }
 }
