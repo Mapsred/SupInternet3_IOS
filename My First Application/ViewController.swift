@@ -56,7 +56,7 @@ class ViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowDetailSegue" {
             guard let selectedIndex = self.tableView.indexPathForSelectedRow,
-            let object = self.weatherDataSource.getWeatherObject(selectedIndex.row) as? Weather else {return}
+                let object: Weather = self.weatherDataSource.getWeatherObject(selectedIndex.row) else {return}
             
             guard let DetailViewController = segue.destinationViewController as? DetailViewController else {return}
             DetailViewController.weatherObj = object

@@ -54,8 +54,16 @@ class Weather: Mappable {
             "rain" : "http://openweathermap.org/img/w/10d.png",
             "sun": "http://openweathermap.org/img/w/01d.png",
             "partly-cloudy-night": "http://openweathermap.org/img/w/10n.png",
-            "clear-night": "http://openweathermap.org/img/w/01n.png"
+            "clear-night": "http://openweathermap.org/img/w/01n.png",
+            "partly-cloudy-day": "http://openweathermap.org/img/w/04d.png",
+            "clear-day": "http://openweathermap.org/img/w/03d.png",
+            "snow" : "http://openweathermap.org/img/w/13d.png"
         ]
+        
+        //debug
+        if (dictionnaryWeather[iconName] == nil) {
+            print("\(iconName) icon type does not exists")
+        }
         
         return  (dictionnaryWeather[iconName] == nil ? dictionnaryWeather["sun"] : dictionnaryWeather[iconName])!
     }

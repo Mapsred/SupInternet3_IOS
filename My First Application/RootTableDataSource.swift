@@ -61,10 +61,8 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
-    func configure(tableViewCell cell: RootWeatherCell, withObjectWeather objWeather: Weather) {
-        let summary = objWeather.description
-        
-        cell.summaryLabel.text = summary
+    func configure(tableViewCell cell: RootWeatherCell, withObjectWeather objWeather: Weather) {        
+        cell.summaryLabel.text = objWeather.description
         cell.summaryLabel.font = UIFont(name:"Avenir", size:12)
                 
         cell.dateLabel.text = objWeather.getDate()

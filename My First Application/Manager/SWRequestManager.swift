@@ -35,7 +35,7 @@ class SWRequestManager {
                 error("Request Manager -> No data when fetching [\(strRequest)], or corrupted")
                 return
             }
-            
+                        
             success(weatherResponse)
         }
     }

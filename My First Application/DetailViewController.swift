@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var LabelDetail: UILabel!
@@ -18,6 +20,11 @@ class DetailViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backgroundUrl = "http://www.alarmemeteo.ch/typo3conf/ext/nmxdummy/resources/global/templates/img/header_background/wa-background2.jpg"
+        Alamofire.request(.GET, backgroundUrl).responseImage { response in
+            self.view.backgroundColor = UIColor(patternImage: response.result.value!)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,7 +38,9 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("Weather object : \(weatherObj)")
+        //let desc: String = weatherObj.description!
+        if let date: String? = weatherObj.getDate() {
+            //self.LabelDetail.text = date
+        }
     }
 }
