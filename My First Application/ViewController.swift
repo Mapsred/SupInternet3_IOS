@@ -10,8 +10,8 @@ import UIKit
 import GearRefreshControl
 
 class ViewController: UITableViewController {
-
-    var weatherDataSource : RootTableDataSource! = nil
+    
+    let weatherDataSource = RootTableDataSource()
     var gearRefreshControl: GearRefreshControl!
 
     override func awakeFromNib() {
@@ -24,10 +24,9 @@ class ViewController: UITableViewController {
         gearRefreshControl.addTarget(self, action: #selector(ViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = gearRefreshControl
         
-        self.weatherDataSource = RootTableDataSource()
         self.tableView.dataSource = self.weatherDataSource
         self.weatherDataSource.updateWeather {
-            [weak self]_ in
+            [weak self] _ in
             self?.reload()
         }
     }
@@ -55,7 +54,7 @@ class ViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowDetailSegue"{
+        if segue.identifier == "ShowDetailSegue" {
             guard let selectedIndex = self.tableView.indexPathForSelectedRow,
             let object = self.weatherDataSource.getWeatherObject(selectedIndex.row) as? Weather else {return}
             

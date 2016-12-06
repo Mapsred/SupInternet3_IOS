@@ -54,13 +54,6 @@
                                                 <constraint firstAttribute="width" constant="107" id="yhJ-pE-szx"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4V7-fd-FeW">
-                                            <rect key="frame" x="109" y="8" width="40" height="30"/>
-                                            <state key="normal" title="Detail"/>
-                                            <connections>
-                                                <action selector="userTapped" destination="nkf-Lp-sEM" eventType="touchUpInside" id="nah-Jb-PaZ"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="Rbz-iY-gdI" secondAttribute="bottom" constant="10" id="9br-ko-fpg"/>
@@ -79,18 +72,15 @@
                                     <outlet property="dateLabel" destination="6rr-XD-f0u" id="nt3-MU-752"/>
                                     <outlet property="imageLabel" destination="NOT-2O-bGC" id="jvl-rf-EPY"/>
                                     <outlet property="summaryLabel" destination="Rbz-iY-gdI" id="6Oh-v5-die"/>
+                                    <segue destination="d5v-y9-3ex" kind="show" identifier="ShowDetailSegue" id="QlJ-RY-kLo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="nkf-Lp-sEM" id="onh-wT-qSh"/>
                             <outlet property="delegate" destination="nkf-Lp-sEM" id="1Eu-CU-zmM"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ASS-HC-DJ3"/>
-                    <connections>
-                        <segue destination="d5v-y9-3ex" kind="show" identifier="ShowDetailSegue" id="c18-gV-BcA"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HE-fV-Ziw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

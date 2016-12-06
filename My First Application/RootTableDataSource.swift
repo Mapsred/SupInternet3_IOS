@@ -25,7 +25,7 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
     var resultWeather: [Weather]?
     
     // Fetch New Weather
-    func updateWeather(completion: () -> Void!) -> AnyObject! {
+    func updateWeather(completion: () -> Void) -> AnyObject! {
         SWRequestManager.sharedInstance.fetchWeather(onSuccess: { [weak self](result) in
             self?.resultWeather = result
             completion()
