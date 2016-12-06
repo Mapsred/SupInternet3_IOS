@@ -22,7 +22,6 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
         return formatter
     }()
     
-    
     var resultWeather: [Weather]?
     
     // Fetch New Weather
@@ -64,15 +63,11 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
     
     func configure(tableViewCell cell: RootWeatherCell, withObjectWeather objWeather: Weather) {
         let summary = objWeather.description
-        let time = objWeather.date
         
         cell.summaryLabel.text = summary
         cell.summaryLabel.font = UIFont(name:"Avenir", size:12)
-        
-        let date = NSDate(timeIntervalSinceReferenceDate: time)
-        let strDateFormated = self.dateFormatter.stringFromDate(date)
-        
-        cell.dateLabel.text = strDateFormated
+                
+        cell.dateLabel.text = objWeather.getDate()
         cell.dateLabel.font = UIFont(name:"Avenir", size:12)
         let icon = objWeather.iconName
         

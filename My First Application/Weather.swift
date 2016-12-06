@@ -15,6 +15,19 @@ class Weather: Mappable {
     var iconName: String = "icon-default"
     var temperatureMax: Double!
     var temperatureMin: Double!
+    
+    static var dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "fr_FR")
+        formatter.dateFormat = "EEEE d MMM"
+        
+        return formatter
+    }()
+    
+    var formatedDate: String {
+        let dateA = NSDate(timeIntervalSinceReferenceDate: date)
+        return Weather.dateFormatter.stringFromDate(dateA)
+    }
 
     required init?(_ map: Map) {
         guard ((map.JSONDictionary["time"] as? Int) != nil) && ((map.JSONDictionary["temperatureMin"] as? Double) != nil)
@@ -30,5 +43,9 @@ class Weather: Mappable {
         iconName <- map["icon"]
         temperatureMin <- map["temperatureMin"]
         temperatureMax <- map["temperatureMax"]
+    }
+    
+    func getDate() -> String {
+        return self.formatedDate
     }
 }
