@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		636BE3C11B51C3F8A11475D0 /* Pods_My_First_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14192561E9A637B080EE871C /* Pods_My_First_Application.framework */; };
+		7A36F4351DF6FB9C00AC9B43 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36F4341DF6FB9C00AC9B43 /* Weather.swift */; };
 		AADABEBF1DC0B918000676CD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADABEBE1DC0B918000676CD /* DetailViewController.swift */; };
 		DA03FB4E1DB77CD100AD6AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03FB4D1DB77CD100AD6AB0 /* AppDelegate.swift */; };
 		DA03FB501DB77CD100AD6AB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03FB4F1DB77CD100AD6AB0 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		14192561E9A637B080EE871C /* Pods_My_First_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_First_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A36F4341DF6FB9C00AC9B43 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8108B05EF47FF468FA3B4BCF /* Pods-My First Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My First Application.release.xcconfig"; path = "Pods/Target Support Files/Pods-My First Application/Pods-My First Application.release.xcconfig"; sourceTree = "<group>"; };
 		AADABEBE1DC0B918000676CD /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CB39C1FC109924FEAF808359 /* Pods-My First Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My First Application.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My First Application/Pods-My First Application.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				AADABEBE1DC0B918000676CD /* DetailViewController.swift */,
 				DA13C6771DC9EAED00E45AC0 /* SWRequestManager.swift */,
 				DA6778C61DCA000A00BF63EB /* RootWeatherCell.swift */,
+				7A36F4341DF6FB9C00AC9B43 /* Weather.swift */,
 			);
 			path = "My First Application";
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				DA6778C71DCA000A00BF63EB /* RootWeatherCell.swift in Sources */,
 				DA13C6781DC9EAED00E45AC0 /* SWRequestManager.swift in Sources */,
 				DA12B8B81DDB612100545FB3 /* RootTableDataSource.swift in Sources */,
+				7A36F4351DF6FB9C00AC9B43 /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

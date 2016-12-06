@@ -12,7 +12,7 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var LabelDetail: UILabel!
     
-    var weatherObj : WeatherObject!
+    var weatherObj : Weather!
     
     static let identifier = "DetailWeatherCell"
    
@@ -32,6 +32,6 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("\(weatherObj)")
+        print("Weather object : \(weatherObj)")
     }
 }

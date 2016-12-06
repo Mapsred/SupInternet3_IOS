@@ -2,18 +2,28 @@ PODS:
   - Alamofire (3.5.1)
   - AlamofireImage (2.5.0):
     - Alamofire (~> 3.5)
+  - AlamofireObjectMapper (2.1.2):
+    - Alamofire (~> 3.2)
+    - ObjectMapper (~> 1.0)
+  - GearRefreshControl (0.3.0)
   - JSONModel (1.7.0)
+  - ObjectMapper (1.5.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.5.1)
   - AlamofireImage (~> 2.5.0)
+  - AlamofireObjectMapper (~> 2.1)
+  - GearRefreshControl (~> 0.1)
   - JSONModel
 
 SPEC CHECKSUMS:
   Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
   AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
+  AlamofireObjectMapper: 82391c31f23e37bdb2660da174bcf81b202da39d
+  GearRefreshControl: c7b1abac8a298f180df48c1bc450469e98840c46
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  ObjectMapper: 386645adca9d9d23b95eda43090b09d66444cf14
 
-PODFILE CHECKSUM: b1c2d8350b155d79f76481af1744435b07599632
+PODFILE CHECKSUM: cbad96312b3f658524bdcf3d8019d5971d5c2dec
 
 COCOAPODS: 1.1.1

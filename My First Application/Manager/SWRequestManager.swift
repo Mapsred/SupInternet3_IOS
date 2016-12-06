@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
 
 /// Request Manager to make HTTP Calls to zeather server
 
@@ -26,22 +27,16 @@ class SWRequestManager {
         actualCoordinates = (latitude: "37.8267", longitude: "122.4233")
     }
     
-    func fetchWeather(onSuccess success: (WeatherArray) -> Void, onError error: (String) -> Void) -> Void {
+    func fetchWeather(onSuccess success: ([Weather]) -> Void, onError error: (String) -> Void) -> Void {
         var strRequest = "\(host)/\(apiKey)/"
         strRequest += "\(actualCoordinates.latitude),\(actualCoordinates.longitude)"
-        Alamofire.request(.GET, strRequest).responseJSON { response in
-            guard let JSON = response.result.value as? Dictionary<String, AnyObject>  else{
+        Alamofire.request(.GET, strRequest).responseArray("daily.data") { (response: Response<[Weather], NSError>) in
+            guard let weatherResponse = response.result.value else {
                 error("Request Manager -> No data when fetching [\(strRequest)], or corrupted")
                 return
             }
             
-            guard let daily = JSON["daily"] as? Dictionary<String, AnyObject>,
-                let data = daily["data"] as? WeatherArray else {
-                error("Request Manager -> Can not map from \(strRequest)")
-                return
-            }
-            
-            success(data)
+            success(weatherResponse)
         }
     }
 }

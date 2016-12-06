@@ -23,7 +23,7 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
     }()
     
     
-    var resultWeather: WeatherArray?
+    var resultWeather: [Weather]?
     
     // Fetch New Weather
     func updateWeather(completion: () -> Void!) -> AnyObject! {
@@ -62,10 +62,9 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
-    func configure(tableViewCell cell: RootWeatherCell, withObjectWeather objWeather: [String: AnyObject]) {
-        guard let summary = objWeather["summary"] as? String, let time = objWeather["time"] as? Double else {
-            return
-        }
+    func configure(tableViewCell cell: RootWeatherCell, withObjectWeather objWeather: Weather) {
+        let summary = objWeather.description
+        let time = objWeather.date
         
         cell.summaryLabel.text = summary
         cell.summaryLabel.font = UIFont(name:"Avenir", size:12)
@@ -75,9 +74,9 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
         
         cell.dateLabel.text = strDateFormated
         cell.dateLabel.font = UIFont(name:"Avenir", size:12)
-        let icon = objWeather["icon"]
+        let icon = objWeather.iconName
         
-        Alamofire.request(.GET, findImageLinkFromWeather((icon as? String)!)).responseImage {
+        Alamofire.request(.GET, findImageLinkFromWeather((icon))).responseImage {
             response in cell.imageLabel.image = response.result.value
         }
     }
@@ -93,7 +92,7 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
         return  (dictionnaryWeather[weather] == nil ? dictionnaryWeather["sun"] : dictionnaryWeather[weather])!
     }
     
-    func getWeatherObject(forIndexRow: Int) -> WeatherObject {
+    func getWeatherObject(forIndexRow: Int) -> Weather {
         return self.resultWeather![forIndexRow]
     }
 
