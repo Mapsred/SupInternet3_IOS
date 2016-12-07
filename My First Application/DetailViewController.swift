@@ -12,18 +12,20 @@ import Alamofire
 import AlamofireImage
 
 class DetailViewController: UIViewController {
-    @IBOutlet weak var LabelDetail: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
     
+    @IBOutlet weak var progressBar: UIProgressView!
     var weatherObj : Weather!
     
     static let identifier = "DetailWeatherCell"
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backgroundUrl = "http://www.alarmemeteo.ch/typo3conf/ext/nmxdummy/resources/global/templates/img/header_background/wa-background2.jpg"
-        Alamofire.request(.GET, backgroundUrl).responseImage { response in
-            self.view.backgroundColor = UIColor(patternImage: response.result.value!)
-        }
+        //let backgroundUrl = "http://www.alarmemeteo.ch/typo3conf/ext/nmxdummy/resources/global/templates/img/header_background/wa-background2.jpg"
+        //Alamofire.request(.GET, backgroundUrl).responseImage { response in
+        //    self.view.backgroundColor = UIColor(patternImage: response.result.value!)
+        //}
         
     }
     
@@ -38,9 +40,8 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //let desc: String = weatherObj.description!
-        if let date: String? = weatherObj.getDate() {
-            //self.LabelDetail.text = date
-        }
+        dateLabel.text = weatherObj.getDate()
+        summaryLabel.text = weatherObj.description
+        
     }
 }

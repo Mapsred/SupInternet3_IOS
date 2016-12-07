@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y99-qP-IDQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y99-qP-IDQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -98,18 +98,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9B-4x-lF7">
-                                <rect key="frame" x="222" y="88" width="156" height="97"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9B-4x-lF7">
+                                <rect key="frame" x="233" y="72" width="135" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="txV-WR-89P"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="summaryLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCL-bj-G1n">
+                                <rect key="frame" x="155" y="113" width="291" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="291" id="PYu-4h-3vh"/>
+                                    <constraint firstAttribute="height" constant="21" id="gjF-Lw-eRO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="FC2-lT-8Sj">
+                                <rect key="frame" x="225" y="182" width="150" height="3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="HCK-as-8Zo"/>
+                                </constraints>
+                                <color key="progressTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="trackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="x9B-4x-lF7" firstAttribute="centerY" secondItem="Imf-hL-kCu" secondAttribute="centerY" constant="-163.5" id="NJe-gP-ciB"/>
+                            <constraint firstItem="FC2-lT-8Sj" firstAttribute="top" secondItem="qCL-bj-G1n" secondAttribute="bottom" constant="48" id="1s9-If-c1F"/>
+                            <constraint firstItem="qCL-bj-G1n" firstAttribute="top" secondItem="x9B-4x-lF7" secondAttribute="bottom" constant="20" id="7V0-Ef-gta"/>
+                            <constraint firstItem="qCL-bj-G1n" firstAttribute="centerX" secondItem="FC2-lT-8Sj" secondAttribute="centerX" id="V05-EK-9Kk"/>
+                            <constraint firstItem="x9B-4x-lF7" firstAttribute="centerX" secondItem="Imf-hL-kCu" secondAttribute="centerX" id="Vi5-bP-5AW"/>
+                            <constraint firstItem="x9B-4x-lF7" firstAttribute="centerX" secondItem="qCL-bj-G1n" secondAttribute="centerX" id="jKX-UO-ECD"/>
+                            <constraint firstItem="x9B-4x-lF7" firstAttribute="top" secondItem="h6g-45-Ecs" secondAttribute="bottom" constant="8" symbolic="YES" id="lRy-qx-2Wq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="x9B-4x-lF7" id="kMc-0T-RRs"/>
+                        <outlet property="progressBar" destination="FC2-lT-8Sj" id="4du-yJ-ZCH"/>
+                        <outlet property="summaryLabel" destination="qCL-bj-G1n" id="zaR-1U-swp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCa-Ho-4dQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

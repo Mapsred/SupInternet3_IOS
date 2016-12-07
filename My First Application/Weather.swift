@@ -30,8 +30,13 @@ class Weather: Mappable {
     }
 
     required init?(_ map: Map) {
-        guard ((map.JSONDictionary["time"] as? Int) != nil) && ((map.JSONDictionary["temperatureMin"] as? Double) != nil)
-            && (map.JSONDictionary["temperatureMax"] as? Double) != nil else {
+        guard (
+            (map.JSONDictionary["time"] as? Int) != nil) &&
+            (map.JSONDictionary["temperatureMin"] as? Double) != nil &&
+            (map.JSONDictionary["temperatureMax"] as? Double) != nil &&
+            (map.JSONDictionary["summary"] as? String) != nil &&
+            (map.JSONDictionary["time"] as? Double) != nil
+            else {
             return nil
         }
         
