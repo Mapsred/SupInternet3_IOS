@@ -30,7 +30,7 @@ class SWRequestManager {
     func fetchWeather(onSuccess success: ([Weather]) -> Void, onError error: (String) -> Void) -> Void {
         var strRequest = "\(host)/\(apiKey)/"
         strRequest += "\(actualCoordinates.latitude),\(actualCoordinates.longitude)"
-        strRequest += "?lang=fr&unit=si"
+        strRequest += "?lang=fr&units=si"
         Alamofire.request(.GET, strRequest).responseArray("daily.data") { (response: Response<[Weather], NSError>) in
             guard let weatherResponse = response.result.value else {
                 error("Request Manager -> No data when fetching [\(strRequest)], or corrupted")

@@ -13,9 +13,12 @@ import AlamofireImage
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var minLabel: UILabel!
+    @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     
-    @IBOutlet weak var progressBar: UIProgressView!
     var weatherObj : Weather!
     
     static let identifier = "DetailWeatherCell"
@@ -40,8 +43,15 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        let minTemp = String(Int(weatherObj.temperatureMin))
+        let maxTemp = String(Int(weatherObj.temperatureMax))
+        progressBar.transform = CGAffineTransformScale(progressBar.transform, 1, 10)
         dateLabel.text = weatherObj.getDate()
+        infoLabel.text = "Températures entre \(minTemp) et \(maxTemp) degrés"
         summaryLabel.text = weatherObj.description
+        minLabel.text = minTemp
+        maxLabel.text = maxTemp
+        
         
     }
 }
