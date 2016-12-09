@@ -12,9 +12,14 @@ import ObjectMapper
 class Weather: Mappable {
     var date: Double!
     var description: String?
-    var iconName: String = "sun"
+    var iconName: String!
     var temperatureMax: Double!
     var temperatureMin: Double!
+    var sunriseTime: Double!
+    var sunsetTime: Double!
+    var temperatureMinTime: Double!
+    var temperatureMaxTime: Double!
+    
     
     static var dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
@@ -24,18 +29,36 @@ class Weather: Mappable {
         return formatter
     }()
     
+    static var timeFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "fr_FR")
+        formatter.dateFormat = "HH:mm"
+
+        return formatter
+    }()
+    
     var formatedDate: String {
         let dateA = NSDate(timeIntervalSinceReferenceDate: date)
         return Weather.dateFormatter.stringFromDate(dateA)
     }
+    
+    func getFormatedTime(date: Double) -> String {
+        let dateA = NSDate(timeIntervalSinceReferenceDate: date)
+
+        return Weather.timeFormatter.stringFromDate(dateA)
+    }
 
     required init?(_ map: Map) {
-        guard (
-            (map.JSONDictionary["time"] as? Int) != nil) &&
+        guard
+            (map.JSONDictionary["time"] as? Int) != nil &&
             (map.JSONDictionary["temperatureMin"] as? Double) != nil &&
             (map.JSONDictionary["temperatureMax"] as? Double) != nil &&
             (map.JSONDictionary["summary"] as? String) != nil &&
-            (map.JSONDictionary["time"] as? Double) != nil
+            (map.JSONDictionary["icon"] as? String) != nil &&
+            (map.JSONDictionary["sunriseTime"] as? Double) != nil &&
+            (map.JSONDictionary["sunsetTime"] as? Double) != nil &&
+            (map.JSONDictionary["temperatureMinTime"] as? Double) != nil &&
+            (map.JSONDictionary["temperatureMaxTime"] as? Double) != nil
             else {
             return nil
         }
@@ -48,28 +71,17 @@ class Weather: Mappable {
         iconName <- map["icon"]
         temperatureMin <- map["temperatureMin"]
         temperatureMax <- map["temperatureMax"]
+        sunriseTime <- map["sunriseTime"]
+        sunsetTime <- map["sunsetTime"]
+        temperatureMinTime <- map["temperatureMinTime"]
+        temperatureMaxTime <- map["temperatureMaxTime"]
     }
     
     func getDate() -> String {
         return self.formatedDate
     }
     
-    func getImageLink() ->  String{
-        let dictionnaryWeather = [
-            "rain" : "http://openweathermap.org/img/w/10d.png",
-            "sun": "http://openweathermap.org/img/w/01d.png",
-            "partly-cloudy-night": "http://openweathermap.org/img/w/10n.png",
-            "clear-night": "http://openweathermap.org/img/w/01n.png",
-            "partly-cloudy-day": "http://openweathermap.org/img/w/04d.png",
-            "clear-day": "http://openweathermap.org/img/w/03d.png",
-            "snow" : "http://openweathermap.org/img/w/13d.png"
-        ]
-        
-        //debug
-        if (dictionnaryWeather[iconName] == nil) {
-            print("\(iconName) icon type does not exists")
-        }
-        
-        return  (dictionnaryWeather[iconName] == nil ? dictionnaryWeather["sun"] : dictionnaryWeather[iconName])!
+    func getWeatherIcon() -> String {
+        return "https://cdn.mindgame.ovh/weather/\(iconName).png"
     }
 }

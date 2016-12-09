@@ -18,18 +18,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var sunrise: UIImageView!
+    @IBOutlet weak var sunset: UIImageView!
+    @IBOutlet weak var sunriseLabel: UILabel!
+    @IBOutlet weak var sunsetLabel: UILabel!
     
     var weatherObj : Weather!
+    var url: String = "https://cdn.mindgame.ovh/weather/"
     
     static let identifier = "DetailWeatherCell"
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let backgroundUrl = "http://www.alarmemeteo.ch/typo3conf/ext/nmxdummy/resources/global/templates/img/header_background/wa-background2.jpg"
-        //Alamofire.request(.GET, backgroundUrl).responseImage { response in
-        //    self.view.backgroundColor = UIColor(patternImage: response.result.value!)
-        //}
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,9 +50,27 @@ class DetailViewController: UIViewController {
         dateLabel.text = weatherObj.getDate()
         infoLabel.text = "Températures entre \(minTemp) et \(maxTemp) degrés"
         summaryLabel.text = weatherObj.description
-        minLabel.text = minTemp
-        maxLabel.text = maxTemp
+        minLabel.text = "\(minTemp)°"
+        maxLabel.text = "\(maxTemp)°"
+        detailLabel.text = "\(minTemp)°  \(weatherObj.getFormatedTime(weatherObj.temperatureMinTime)) -> \t" +
+        "\(maxTemp)°  \(weatherObj.getFormatedTime(weatherObj.temperatureMaxTime))"
+        detailLabel.font = UIFont(name:"Avenir", size:14)
         
+        Alamofire.request(.GET, "\(url)sunrise.png").responseImage {
+            response in if let image = response.result.value {
+                self.sunrise.image = image
+            }
+        }
+        
+        Alamofire.request(.GET, "\(url)sunset.png").responseImage {
+            response in if let image = response.result.value {
+                self.sunset.image = image
+            }
+        }
+
+        sunriseLabel.text = weatherObj.getFormatedTime(weatherObj.sunsetTime)
+        sunsetLabel.text = weatherObj.getFormatedTime(weatherObj.sunriseTime)
+
         
     }
 }

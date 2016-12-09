@@ -68,8 +68,12 @@ class RootTableDataSource: NSObject, UITableViewDataSource {
         cell.dateLabel.text = objWeather.getDate()
         cell.dateLabel.font = UIFont(name:"Avenir", size:12)
         
-        Alamofire.request(.GET, objWeather.getImageLink()).responseImage {
-            response in cell.imageLabel.image = response.result.value
+        Alamofire.request(.GET, objWeather.getWeatherIcon()).responseImage {
+            response in if let image = response.result.value {
+                cell.imageLabel.image = image
+            }else {
+                debugPrint(objWeather.getWeatherIcon())        
+            }
         }
     }
     
