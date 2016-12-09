@@ -20,6 +20,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.grayColor()
         gearRefreshControl = GearRefreshControl(frame: self.view.bounds)
         gearRefreshControl.addTarget(self, action: #selector(ViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = gearRefreshControl
@@ -33,6 +34,10 @@ class ViewController: UITableViewController {
     
     func refresh(){
         self.gearRefreshControl.endRefreshing()
+        self.weatherDataSource.updateWeather {
+            [weak self] _ in
+            self?.reload()
+        }
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {

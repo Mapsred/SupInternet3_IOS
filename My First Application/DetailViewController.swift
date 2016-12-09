@@ -49,6 +49,7 @@ class DetailViewController: UIViewController {
         progressBar.transform = CGAffineTransformScale(progressBar.transform, 1, 10)
         dateLabel.text = weatherObj.getDate()
         infoLabel.text = "Températures entre \(minTemp) et \(maxTemp) degrés"
+        summaryLabel.numberOfLines = 0
         summaryLabel.text = weatherObj.description
         minLabel.text = "\(minTemp)°"
         maxLabel.text = "\(maxTemp)°"
