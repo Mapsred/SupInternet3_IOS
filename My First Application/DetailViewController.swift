@@ -31,6 +31,12 @@ class DetailViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Alamofire.request(.GET, "\(url)background/main-background.jpg").responseImage {
+            response in if let image = response.result.value {
+                self.view.backgroundColor = UIColor(patternImage: image)
+            }
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
